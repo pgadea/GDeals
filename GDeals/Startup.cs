@@ -1,8 +1,7 @@
-using GDeals.Domain;
-using GDeals.Features;
+using GDeals.Web.Domain;
+using GDeals.Web.Features;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;

@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using GDeals.Domain;
-using GDeals.Features.Models;
+﻿using GDeals.Features.Models;
+using GDeals.Web.Domain;
 
-namespace GDeals.Features
+namespace GDeals.Web.Features
 {
     public class ProductService
     {

@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard';
 import Axios from 'axios';
 
 export default class ProductList extends Component {

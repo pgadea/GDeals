@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import Axios from 'axios';
+import AddToCart from '../AddToCart';
 
 export default class ProductDetails extends Component {
 
@@ -23,6 +24,7 @@ export default class ProductDetails extends Component {
                         <h1>{this.state.name}</h1>
                         <p>{this.state.description}</p>
                         <p>${this.state.price}</p>
+                        <AddToCart productId={this.props.match.params.id}/>
                     </div>
                 </div>
             </div>

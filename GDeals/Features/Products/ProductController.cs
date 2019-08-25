@@ -1,11 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using GDeals.Features.Models;
 using Microsoft.AspNetCore.Mvc;
-using GDeals.Features.Models;
 
-namespace GDeals.Features
+namespace GDeals.Web.Features
 {
     [Route("api/[controller]")]
     [ApiController]

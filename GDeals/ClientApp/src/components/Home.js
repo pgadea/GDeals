@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductList from './ProductList';
+import ProductList from './Products/ProductList';
 
 export class Home extends Component {
     static displayName = Home.name;

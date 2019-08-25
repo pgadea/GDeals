@@ -1,4 +1,4 @@
-﻿namespace GDeals.Domain
+﻿namespace GDeals.Web.Domain
 {
     public class Product
     {
