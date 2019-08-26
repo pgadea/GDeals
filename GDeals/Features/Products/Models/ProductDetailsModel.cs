@@ -1,4 +1,4 @@
-﻿namespace GDeals.Features.Models
+﻿namespace GDeals.Features.Products.Models
 {
     public class ProductDetailsModel
     {

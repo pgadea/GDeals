@@ -1,7 +1,7 @@
-﻿using GDeals.Features.Models;
+﻿using GDeals.Features.Products.Models;
 using GDeals.Web.Domain;
 
-namespace GDeals.Web.Features
+namespace GDeals.Web.Features.Products
 {
     public class ProductService
     {

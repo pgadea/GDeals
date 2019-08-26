@@ -1,6 +1,4 @@
-﻿using GDeals.Web.Domain;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace GDeals.Web.Features.Cart
 {
@@ -8,27 +6,17 @@ namespace GDeals.Web.Features.Cart
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly StoreContext dbContext;
+        private readonly CartService cartService;
 
-        public CartController(StoreContext dbContext)
+        public CartController(CartService cartService)
         {
-            this.dbContext = dbContext;
+            this.cartService = cartService;
         }
 
         public IActionResult AddItem(AddItemCommand command)
         {
-            var cart = new ShoppingCart { SessionId = Guid.NewGuid(), CreatedOn = DateTime.Now };
-            cart.Items.Add(new CartLineItem { ProductId = command.ProductId, Quantity = 1 });
-
-            dbContext.ShoppingCart.Add(cart);
-            dbContext.SaveChanges();
-
-            return Ok(command.ProductId);
+            var result = cartService.AddItem(command);
+            return Ok(result);
         }
-    }
-
-    public class AddItemCommand
-    {
-        public int ProductId { get; set; }
     }
 }

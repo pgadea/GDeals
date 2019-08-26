@@ -1,7 +1,7 @@
-﻿using GDeals.Features.Models;
+﻿using GDeals.Features.Products.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GDeals.Web.Features
+namespace GDeals.Web.Features.Products
 {
     [Route("api/[controller]")]
     [ApiController]
