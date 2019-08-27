@@ -1,4 +1,5 @@
 ﻿using GDeals.Web.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace GDeals.Web.Features.Cart
             ShoppingCart cart;
             if (command.SessionId.HasValue)
             {
-                cart = dbContext.ShoppingCart.SingleOrDefault(x => x.SessionId == command.SessionId);
+                cart = dbContext.ShoppingCart.Include(x => x.Items).SingleOrDefault(x => x.SessionId == command.SessionId);
             }
             else
             {
@@ -27,7 +28,7 @@ namespace GDeals.Web.Features.Cart
                 dbContext.ShoppingCart.Add(cart);
             }
 
-            cart.Items.Add(new CartLineItem { ProductId = command.ProductId, Quantity = 1 });
+            cart.Add(command.ProductId);
             dbContext.SaveChanges();
 
             return new AddItemResult { SessionId = cart.SessionId };
