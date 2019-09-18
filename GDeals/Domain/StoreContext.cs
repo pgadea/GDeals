@@ -8,5 +8,6 @@ namespace GDeals.Web.Domain
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

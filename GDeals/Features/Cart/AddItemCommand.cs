@@ -6,5 +6,6 @@ namespace GDeals.Web.Features.Cart
     {
         public int ProductId { get; set; }
         public Guid? SessionId { get; set; }
+        public int Quantity { get; set; }
     }
 }
