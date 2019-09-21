@@ -14,22 +14,25 @@ export default class App extends Component {
     static displayName = App.name;
 
     render() {
+
         return (
-            <Layout>
-                <Route exact path='/' component={Home} />
-                <Route path='/counter' component={Counter} />
-                <Route path='/fetch-data' component={FetchData} />
-                <Route path='/product/:id' component={ProductDetails} />
-                <Route path='/cart' component={Cart} />
-                <Route path='/callback' component={({ ...others }) =>
-                    <Callback auth={this.props.auth} {...others} />
-                } />
-                <Route path='/checkout' component={({ ...others }) =>
-                    <SecureCheckout auth={this.props.auth}>
-                        <CheckoutPage auth={this.props.auth} {...others} />
-                    </SecureCheckout>
-                } />
-            </Layout>
+            <Route path='/*' component={({ ...others }) =>
+                <Layout auth={this.props.auth}>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/counter' component={Counter} />
+                    <Route path='/fetch-data' component={FetchData} />
+                    <Route path='/product/:id' component={ProductDetails} />
+                    <Route path='/cart' component={Cart} />
+                    <Route path='/callback' component={({ ...others }) =>
+                        <Callback auth={this.props.auth} {...others} />
+                    } />
+                    <Route path='/checkout' component={({ ...others }) =>
+                        <SecureCheckout auth={this.props.auth}>
+                            <CheckoutPage auth={this.props.auth} {...others} />
+                        </SecureCheckout>
+                    } />
+                </Layout>
+            } />
         );
     }
 }
@@ -44,8 +47,6 @@ export class SecureCheckout extends Component {
     }
 
     async componentDidMount() {
-        console.log(this);
-        console.log(this.props.auth.isAuthenticated());
         const isLoggedIn = await this.props.auth.isAuthenticated();
         this.setState({ authenticated: isLoggedIn });
     }
